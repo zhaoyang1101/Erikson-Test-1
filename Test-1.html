@@ -19,13 +19,52 @@
   // .then(function(myJson) {
   // console.log(myJson);
   // });
-  let src="https://zhaoyang1101.github.io/Erikson-Test-1/README.md";
-  fetch(src).then(function(response){
+  // let src="https://zhaoyang1101.github.io/Erikson-Test-1/README.md";
+  // fetch(src).then(function(response){
     // console.log(response);
-    return response.text(); // 用字串的方式取回資料
+  //   return response.text(); // 用字串的方式取回資料                    <<text result
+  // }).then(function(result){
+  //    console.log("最終的資料"，result);
+  // })
+    
+       // Fetch + 載入名稱與數字(for import.HTML)
+  //   let src="https://zhaoyang1101.github.io/Erikson-Test-1/README.md";
+  //   fetch(src).then(function(response){
+  //    // console.log(response);
+  //     return response.json(); // 將資料用 jason 格式詮釋成:物件和陣列的組合<<json result
+  //}).then(function(result){
+  //    // console.log("最終的資料"，result.toUpperCase());字串形式很難用
+  //     console.log("最終的資料"，result);
+      // 把抓到的資料放到畫面上
+  //    list.innerHTML="";
+  //    let product;
+  //    for(let i=0;i<result.length;i++){
+  //        product=result[i];
+  //        //console.log("product");
+  //        list.innerHTML+=product.name.bold()+" - "+product.price+"<hr/>"
+  //    }   
+    
+     // Fetch + 載入名稱與數字(平均數func.)(for import.HTML)
+     let src="https://zhaoyang1101.github.io/Erikson-Test-1/README.md";
+     fetch(src).then(function(response){
+      // console.log(response);
+       return response.json(); // 將資料用 jason 格式詮釋成:物件和陣列的組合<<json result
   }).then(function(result){
-     console.log("最終的資料"，result);
-  })
+      // console.log("最終的資料"，result.toUpperCase());字串形式很難用
+       console.log("最終的資料"，result);
+      // 把抓到的資料放到畫面上
+      list.innerHTML="";
+      let product;
+      let sum=0;                           //<< 取 product;sum=0
+      for(let i=0;i<result.length;i++){
+          product=result[i];
+          //console.log("product");
+          list.innerHTML+=product.name.bold()+" - "+product.price+"<hr/>"
+          sum+=product.price;
+      }       
+      let avg=sum/result.length;
+      list.innerHTML+="平均數(文字)"+avg;    // << avg=數字 prin  
+  });
   </script>
 <p>I'm hosted with GitHub Pages.</p>
 </body>
