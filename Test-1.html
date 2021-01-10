@@ -8,10 +8,30 @@
   <h1>AJAX 網路連線基本操作</h1>
   <div id="list"><div>
   <script>
-  // 先顯示 Loading 的訊息
+  // 先顯示 Loading 的訊息。
   let list=document.getElementById("list");
   list.innerHTML="...Loding...";
+  // 透過 ALAX fetch API 連線到遠端的網址，抓取資料。
+  // fetch(網址'http://example.com/movies.json')
+  // .then(function(response) {                <<responese 物件，代表伺服器的回應。   
+  // return response.json(); 
+  // })
+  // .then(function(myJson) {
+  // console.log(myJson);
+  // });
+  let src="https://zhaoyang1101.github.io/Erikson-Test-1/README.md";
+  fetch(src).then(function(response){
+    // console.log(response);
+    return response.text(); // 用字串的方式取回資料
+  }).then(function(result){
+     console.log("最終的資料"，result);
+  })
   </script>
 <p>I'm hosted with GitHub Pages.</p>
 </body>
 </html>
+
+// https://zhaoyang1101.github.io/Erikson-Test-1/專案中的檔案名稱
+https://zhaoyang1101.github.io/Erikson-Test-1/
+https://zhaoyang1101.github.io/Erikson-Test-1/README.md
+https://zhaoyang1101.github.io/Erikson-Test-1/Test-1.html
